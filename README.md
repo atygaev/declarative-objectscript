@@ -1,28 +1,22 @@
 # Welcome to the DeclarativeCOS!
 ## (available for Caché 2015.1+)
-<br/>
-<br/>
-<br/>
+
 # What is DeclarativeCOS?
 
 DeclarativeCOS - is another view to programming on the Caché ObjectScript language. It allows you to write the code in declarative style.
-<br/>
-<br/>
+
 # What is declarative style in COS?
 
 Declarative style in COS means that you write the code as a statement which describes what you need to do.
-<br/>
-<br/>
+
 # What is the difference from my one-liners code?
 
 The main point is not to add one-liners features to COS. The main point is to bring another kind of mind when you do your task. DeclarativeCOS allows to remove regular loops from your code, because you really don't need it.
-<br/>
-<br/>
+
 # What is the problem with my regular loops in COS?
 
 Loop is just an instrument to solve the problem. In common, the problem is to traverse by collection and do some action with every element. Do you really need a loop for it? No. You choose a loop because COS supports loops only. DeclarativeCOS allows to write the code in declarative style. Just declare what you want to do and DeclarativeCOS will do all the rest for you.
-<br/>
-<br/>
+
 # OK. Examples, please.
 
 **What is about output collection?**
@@ -72,8 +66,7 @@ w ##class(DeclarativeCOS.Joiner).join(collection, " ")
 
 w $zjoin(collection, " ")
 ```
-<br/>
-<br/>
+
 # How to install it?
 
 In releases of the repo you can find two xml files:
@@ -83,8 +76,7 @@ In releases of the repo you can find two xml files:
 The first file installs all needed classes to perform any examples above.
 
 The second file installs short functions and commands: zforeach, $zmap, $zfind, $zfilter, $zexists, $zcount, $zjoin.
-<br/>
-<br/>
+
 # OK. How does it work?
 
 **5 steps:**
@@ -94,8 +86,6 @@ The second file installs short functions and commands: zforeach, $zmap, $zfind, 
 - Use one of provided DeclarativeCOS statements.
 - Enjoy the result.
 
-<br/>
-<br/>
 # Any example, please.
 
 Suppose, we need to output all items of the list (for example, list is instance of [%ListOfDataTypes](http://docs.intersystems.com/latest/csp/documatic/%25CSP.Documatic.cls?PAGE=CLASS&LIBRARY=%25SYS&CLASSNAME=%25Library.ListOfDataTypes)).
@@ -147,7 +137,6 @@ zforeach $zbind(words, "io:print")
 ```
 Hello World!
 ```
-<br/>
 # What is about LICENCE?
 
 MIT License
