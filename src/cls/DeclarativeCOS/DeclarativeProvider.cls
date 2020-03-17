@@ -1,6 +1,6 @@
 /// The heart of DeclarativeCOS!
 /// All declarative providers must extend the class.
-Class DeclarativeCOS.DeclarativeProvider
+Class DeclarativeCOS.DeclarativeProvider [ DependsOn = DeclarativeCOS.Utils ]
 {
 
 /// The DeclarativeCOS magic.
