@@ -1,5 +1,4 @@
-QUIT
-.
+ROUTINE %ZLANGC00
  //
  // "zforeach" command.
  //

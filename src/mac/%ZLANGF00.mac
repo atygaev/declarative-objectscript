@@ -1,5 +1,4 @@
-QUIT
-.
+ROUTINE %ZLANGF00
  //
  // "$zbind" function.
  //
