@@ -3,12 +3,12 @@
   <Document name="declarative-os.ZPM">
     <Module>
       <Name>declarative-os</Name>
-      <Version>1.0.1</Version>
+      <Version>1.0.2</Version>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
-      <Resource Name="DeclarativeOS.PKG" Directory="cls"/>
-      <Resource Name="%ZLANGC01.MAC" Directory="mac"/>
-      <Resource Name="%ZLANGF00.MAC" Directory="mac"/>
+      <Resource Name="DeclarativeOS.PKG"/>
+      <Resource Name="%ZLANGC01.MAC"/>
+      <Resource Name="%ZLANGF00.MAC"/>
       <UnitTest Name="/test" Package="Test.DeclarativeOS.PKG" Phase="test"/>
     </Module>   
   </Document>

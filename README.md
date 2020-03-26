@@ -40,6 +40,7 @@ ClassMethod isEven(value As %Numeric)
 - [Installation](#installation)
   - [Use ZPM](#use-zpm)
   - [Use Docker](#use-docker)
+  - [Use XML](#use-xml)
 - [Examples](#examples)
   - [Iterate](#iterate) (zforeach)
   - [Join](#join) ($zjoin)
@@ -63,6 +64,18 @@ $ git clone https://github.com/atygaev/declarative-objectscript
 $ cd declarative-objectscript
 $ docker-compose up -d
 $ docker-compose exec iris iris session iris
+```
+
+### Use XML
+Download the [install.declarative-os.xml](https://github.com/atygaev/declarative-objectscript/releases/latest/install.declarative-os.xml) from latest release.
+```
+https://github.com/atygaev/declarative-objectscript/releases/latest/install.declarative-os.xml
+```
+
+Install the project via terminal:
+```objectscript
+USER> set installFile = "<path to downloaded install.declarative-os.xml>"
+USER> do $system.OBJ.Load(installFile)
 ```
 
 ## Examples
