@@ -32,7 +32,7 @@ IRISAPP> // run DeclarativeOS code
 IRISAPP> do ##class(Demo.App).RunWithDeclarativeOS()
 Even numbers: 2, 4
 ```
-Source of [RunWithLegacyCode](https://github.com/atygaev/declarative-objectscript/blob/master/src/cls/Demo/App.cls#L10).
+Source of [RunWithDeclarativeOS](https://github.com/atygaev/declarative-objectscript/blob/master/src/cls/Demo/App.cls#L10).
 
 ## Content
 - [Installation](#installation)
