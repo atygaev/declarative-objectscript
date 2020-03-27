@@ -15,7 +15,7 @@ $ cd declarative-objectscript
 $ docker-compose up -d
 $ docker-compose exec iris iris session iris
 ```
-```
+```objectscript
 USER> zn "IRISAPP"
 ```
 
