@@ -6,7 +6,51 @@ Declarative ObjectScript - a proof-of-concept to show how to use declarative pro
 
 > [Declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) - a style of building the structure and elements of computer programs—that expresses the logic of a computation without describing its control flow. **(c) Wikipedia**
 
-## Demo
+![Example](https://user-images.githubusercontent.com/27987608/77753292-cb197700-705b-11ea-9931-5d5a7e59f6db.jpg)
+
+## Install with Docker
+```bash
+$ git clone https://github.com/atygaev/declarative-objectscript
+$ cd declarative-objectscript
+$ docker-compose up -d
+$ docker-compose exec iris iris session iris
+```
+
+## Run Demo
+What about to find even numbers in given collection of numbers [1, 2, 3, 4]?
+```objectscript
+USER> zn "IRISAPP"
+IRISAPP>
+IRISAPP> // run legacy code
+IRISAPP> do ##class(Demo.App).RunWithLegacyCode()
+Even numbers: 2, 4
+```
+<details>
+    <summary></summary>
+```objectscript
+ClassMethod RunWithLegacyCode()
+{
+    set numbers = ##class(%ListOfDataTypes).%New()
+    for i=1:1:4 { do numbers.Insert(i) }
+
+    set evenNumbers = ##class(%ListOfDataTypes).%New()
+
+    set index = ""
+    for {
+        set index = numbers.Next(index)
+        quit:index=""
+        set item = numbers.GetAt(index)
+        if (item # 2 = 0) {
+            do evenNumbers.Insert(item)
+        }
+    }
+
+    write "Even numbers: "
+
+    for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " }
+}
+```    
+</details>
 Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
 
 ```objectscript
