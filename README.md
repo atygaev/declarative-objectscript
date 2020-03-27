@@ -6,8 +6,6 @@ Declarative ObjectScript - a proof-of-concept to show how to use declarative pro
 
 > [Declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) - a style of building the structure and elements of computer programs—that expresses the logic of a computation without describing its control flow. **(c) Wikipedia**
 
-![Example](https://user-images.githubusercontent.com/27987608/77753292-cb197700-705b-11ea-9931-5d5a7e59f6db.jpg)
-
 ## Install with Docker
 ```bash
 $ git clone https://github.com/atygaev/declarative-objectscript
@@ -35,42 +33,40 @@ Even numbers: 2, 4
 Source of [RunWithDeclarativeOS](https://github.com/atygaev/declarative-objectscript/blob/master/src/cls/Demo/App.cls#L10)
 
 Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
-<details>
-    <summary>Source of Demo.App</summary>
-    ```objectscript 
-     Class Demo.App Extends DeclarativeOS.RegistryHelper 
-     { 
-     /// @Declarative("examples:isEven") 
-     ClassMethod IsEven(number As %Numeric) As %Boolean 
-     { 
-         return number # 2 = 0 
-     } 
-     ClassMethod RunWithDeclarativeOS() 
-     { 
-         set numbers = ##class(%ListOfDataTypes).%New() 
-         for i=1:1:4 { do numbers.Insert(i) } 
-         set evenNumbers = $zfilter(numbers, "examples:isEven") 
-         write "Even numbers: " _ $zjoin(evenNumbers, " ") 
-     } 
-     ClassMethod RunWithLegacyCode() 
-     { 
-         set numbers = ##class(%ListOfDataTypes).%New() 
-         for i=1:1:4 { do numbers.Insert(i) } 
-         set evenNumbers = ##class(%ListOfDataTypes).%New() 
-         set index = "" 
-         for { 
-             set index = numbers.Next(index) 
-             quit:index="" 
-             set item = numbers.GetAt(index) 
-             if (item # 2 = 0) { 
-                 do evenNumbers.Insert(item) 
-             } 
+```objectscript 
+ Class Demo.App Extends DeclarativeOS.RegistryHelper 
+ { 
+ /// @Declarative("examples:isEven") 
+ ClassMethod IsEven(number As %Numeric) As %Boolean 
+ { 
+     return number # 2 = 0 
+ } 
+ ClassMethod RunWithDeclarativeOS() 
+ { 
+     set numbers = ##class(%ListOfDataTypes).%New() 
+     for i=1:1:4 { do numbers.Insert(i) } 
+     set evenNumbers = $zfilter(numbers, "examples:isEven") 
+     write "Even numbers: " _ $zjoin(evenNumbers, " ") 
+ } 
+ ClassMethod RunWithLegacyCode() 
+ { 
+     set numbers = ##class(%ListOfDataTypes).%New() 
+     for i=1:1:4 { do numbers.Insert(i) } 
+     set evenNumbers = ##class(%ListOfDataTypes).%New() 
+     set index = "" 
+     for { 
+         set index = numbers.Next(index) 
+         quit:index="" 
+         set item = numbers.GetAt(index) 
+         if (item # 2 = 0) { 
+             do evenNumbers.Insert(item) 
          } 
-         write "Even numbers: " 
-         for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " } 
      } 
-     }
-     ```
+     write "Even numbers: " 
+     for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " } 
+ } 
+ }
+ ```
 </details>
 ## Content
 - [Installation](#installation)
