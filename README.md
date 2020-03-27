@@ -34,8 +34,9 @@ Even numbers: 2, 4
 ```
 Source of [RunWithDeclarativeOS](https://github.com/atygaev/declarative-objectscript/blob/master/src/cls/Demo/App.cls#L10)
 
-Just compare two variants: RunWithDeclarativeOS and RunWithLegacyCode. 
-
+Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
+<details>
+    <summary>Source of Demo.App</summary>
 ```objectscript 
 Class Demo.App Extends DeclarativeOS.RegistryHelper 
 { 
@@ -70,6 +71,7 @@ ClassMethod RunWithLegacyCode()
 } 
 }
 ```
+</details>
 ## Content
 - [Installation](#installation)
   - [Use ZPM](#use-zpm)
