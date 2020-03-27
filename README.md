@@ -41,17 +41,22 @@ Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
  { 
      return number # 2 = 0 
  } 
+ 
  ClassMethod RunWithDeclarativeOS() 
  { 
      set numbers = ##class(%ListOfDataTypes).%New() 
      for i=1:1:4 { do numbers.Insert(i) } 
+
      set evenNumbers = $zfilter(numbers, "examples:isEven") 
+
      write "Even numbers: " _ $zjoin(evenNumbers, " ") 
  } 
+ 
  ClassMethod RunWithLegacyCode() 
  { 
      set numbers = ##class(%ListOfDataTypes).%New() 
      for i=1:1:4 { do numbers.Insert(i) } 
+
      set evenNumbers = ##class(%ListOfDataTypes).%New() 
      set index = "" 
      for { 
@@ -62,6 +67,7 @@ Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
              do evenNumbers.Insert(item) 
          } 
      } 
+
      write "Even numbers: " 
      for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " } 
  } 
