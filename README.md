@@ -15,103 +15,24 @@ $ cd declarative-objectscript
 $ docker-compose up -d
 $ docker-compose exec iris iris session iris
 ```
+```
+USER> zn "IRISAPP"
+```
 
 ## Run Demo
 What about to find even numbers in given collection of numbers [1, 2, 3, 4]?
 ```objectscript
-USER> zn "IRISAPP"
-IRISAPP>
 IRISAPP> // run legacy code
 IRISAPP> do ##class(Demo.App).RunWithLegacyCode()
 Even numbers: 2, 4
 ```
-<details>
-    <summary></summary>
+Source of [RunWithLegacyCode](https://github.com/atygaev/declarative-objectscript/blob/master/src/cls/Demo/App.cls#L20).
 ```objectscript
-ClassMethod RunWithLegacyCode()
-{
-    set numbers = ##class(%ListOfDataTypes).%New()
-    for i=1:1:4 { do numbers.Insert(i) }
-
-    set evenNumbers = ##class(%ListOfDataTypes).%New()
-
-    set index = ""
-    for {
-        set index = numbers.Next(index)
-        quit:index=""
-        set item = numbers.GetAt(index)
-        if (item # 2 = 0) {
-            do evenNumbers.Insert(item)
-        }
-    }
-
-    write "Even numbers: "
-
-    for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " }
-}
-```    
-</details>
-Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
-
-```objectscript
-Class Demo.App Extends DeclarativeOS.RegistryHelper
-{
-
-/// @Declarative("examples:isEven")
-ClassMethod IsEven(number As %Numeric) As %Boolean
-{
-    return number # 2 = 0
-}
-
-ClassMethod RunWithDeclarativeOS()
-{
-    set numbers = ##class(%ListOfDataTypes).%New()
-    for i=1:1:4 { do numbers.Insert(i) }
-
-    set evenNumbers = $zfilter(numbers, "examples:isEven")
-
-    write "Even numbers: " _ $zjoin(evenNumbers, " ")
-}
-
-ClassMethod RunWithLegacyCode()
-{
-    set numbers = ##class(%ListOfDataTypes).%New()
-    for i=1:1:4 { do numbers.Insert(i) }
-
-    set evenNumbers = ##class(%ListOfDataTypes).%New()
-
-    set index = ""
-    for {
-        set index = numbers.Next(index)
-        quit:index=""
-        set item = numbers.GetAt(index)
-        if (item # 2 = 0) {
-            do evenNumbers.Insert(item)
-        }
-    }
-
-    write "Even numbers: "
-
-    for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " }
-}
-
-}
-```
-## Play yourself in Docker:
-```shell
-$ docker pull docker.pkg.github.com/atygaev/declarative-objectscript/demo:latest
-$ docker run --name declarative-os-demo -d docker.pkg.github.com/atygaev/declarative-objectscript/demo:latest
-$ docker exec -it declarative-os-demo iris session iris
-```
-```objectscript
-USER> zn "IRISAPP"
-IRISAPP>
-IRISAPP> // run legacy code
-IRISAPP> do ##class(Demo.App).RunWithLegacyCode()
-IRISAPP>
 IRISAPP> // run DeclarativeOS code
 IRISAPP> do ##class(Demo.App).RunWithDeclarativeOS()
+Even numbers: 2, 4
 ```
+Source of [RunWithLegacyCode](https://github.com/atygaev/declarative-objectscript/blob/master/src/cls/Demo/App.cls#L10).
 
 ## Content
 - [Installation](#installation)
