@@ -76,7 +76,7 @@ Both does the same, but there is a difference…
  } 
  }
  ```
-</details>
+
 ## Content
 - [Installation](#installation)
   - [Use ZPM](#use-zpm)
