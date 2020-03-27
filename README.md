@@ -4,6 +4,8 @@
 ## Work with collections like a boss
 Declarative ObjectScript - a proof-of-concept to show how to use declarative programming on ObjectScript.
 
+[![Promo](https://user-images.githubusercontent.com/27987608/77538942-20764c80-6ed3-11ea-9599-1e53a2587a1d.png)](https://www.youtube.com/watch?v=EXSXF1-q1LU )
+
 > [Declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) - a style of building the structure and elements of computer programs—that expresses the logic of a computation without describing its control flow. **(c) Wikipedia**
 
 ## Install with Docker
