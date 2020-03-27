@@ -53,8 +53,7 @@ ClassMethod RunWithLegacyCode()
 
 }
 ```
-Play yourself in Docker:
-
+## Play yourself in Docker:
 ```
 $ docker pull docker.pkg.github.com/atygaev/declarative-objectscript/demo:latest
 $ docker run --name declarative-os-demo -d docker.pkg.github.com/atygaev/declarative-objectscript/demo:latest
