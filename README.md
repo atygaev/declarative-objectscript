@@ -68,9 +68,9 @@ $ docker-compose exec iris iris session iris
 ```
 
 ### Use XML
-Download the [install.declarative-os.xml](https://github.com/atygaev/declarative-objectscript/releases/latest/install.declarative-os.xml) from latest release.
+Download the [install.declarative-os.xml](https://github.com/atygaev/declarative-objectscript/releases/download/v1.0.2/install.declarative-os.xml) from latest release.
 ```
-https://github.com/atygaev/declarative-objectscript/releases/latest/install.declarative-os.xml
+https://github.com/atygaev/declarative-objectscript/releases/download/v1.0.2/install.declarative-os.xml
 ```
 
 Install the project via terminal:
