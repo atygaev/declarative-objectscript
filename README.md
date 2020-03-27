@@ -53,6 +53,20 @@ ClassMethod RunWithLegacyCode()
 
 }
 ```
+Play yourself in Docker:
+
+```
+$ docker pull docker.pkg.github.com/atygaev/declarative-objectscript/demo:latest
+$ docker run --name declarative-os-demo -d docker.pkg.github.com/atygaev/declarative-objectscript/demo:latest
+$ docker exec -it declarative-os-demo iris session iris
+USER> zn "IRISAPP"
+USER>
+USER> // run legacy code
+USER> do ##class(Demo.App).RunWithLegacyCode()
+USER>
+USER> // run DeclarativeOS code
+USER> do ##class(Demo.App).RunWithDeclarativeOS()
+```
 
 ## Content
 - [Installation](#installation)
