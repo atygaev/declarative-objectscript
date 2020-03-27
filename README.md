@@ -1,4 +1,5 @@
-# Declarative ObjectScript
+# Declarative ObjectScript 
+[![Gitter](https://img.shields.io/static/v1?label=Vote%20for%20my%20App&message=InterSystems%20IRIS%20Contest&labelColor=%23333695&color=%2300b2a9)](https://openexchange.intersystems.com/contest/current)
 
 ## Work with collections like a boss
 Declarative ObjectScript - a proof-of-concept to show how to use declarative programming on ObjectScript.
