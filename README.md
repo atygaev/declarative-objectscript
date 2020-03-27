@@ -6,34 +6,51 @@ Declarative ObjectScript - a proof-of-concept to show how to use declarative pro
 
 > [Declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) - a style of building the structure and elements of computer programs—that expresses the logic of a computation without describing its control flow. **(c) Wikipedia**
 
-## What I wished
+## Demo
+Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
+
 ```objectscript
-USER> set numbers = ##class(%ListOfDataTypes).%New()
-USER> do numbers.Insert(1)
-USER> do numbers.Insert(2)
-USER> do numbers.Insert(3)
-USER> do numbers.Insert(4)
-USER>
-USER> // Find even numbers and join to string by using ", "
-USER> write "Even numbers: " _ numbers.Filter(x => x # 2 == 0).Join(", ")
-USER>
-USER> // or somehow like this
-USER> write "Even numbers: " _ $zjoin($zfilter(numbers, x => x # 2 == 0), ", ")
-```
-```
-Even numbers: 2 4
-```
-## What I got (with Declarative ObjectScript)
-```objectscript
-USER> // Find even numbers and join to string by using ", "
-USER> write "Even numbers: " _ $zjoin($zfilter(numbers, "examples:isEven"), ", ")
-```
-Where **examples:isEven** is a *named* class method:
-```objectscript
-/// @Declarative("examples:isEven")
-ClassMethod isEven(value As %Numeric)
+Class Demo.App Extends DeclarativeOS.RegistryHelper
 {
-    return value # 2 = 0
+
+/// @Declarative("examples:isEven")
+ClassMethod IsEven(number As %Numeric) As %Boolean
+{
+    return number # 2 = 0
+}
+
+ClassMethod RunWithDeclarativeOS()
+{
+    set numbers = ##class(%ListOfDataTypes).%New()
+    for i=1:1:4 { do numbers.Insert(i) }
+
+    set evenNumbers = $zfilter(numbers, "examples:isEven")
+
+    write "Even numbers: " _ $zjoin(evenNumbers, " ")
+}
+
+ClassMethod RunWithLegacyCode()
+{
+    set numbers = ##class(%ListOfDataTypes).%New()
+    for i=1:1:4 { do numbers.Insert(i) }
+
+    set evenNumbers = ##class(%ListOfDataTypes).%New()
+
+    set index = ""
+    for {
+        set index = numbers.Next(index)
+        quit:index=""
+        set item = numbers.GetAt(index)
+        if (item # 2 = 0) {
+            do evenNumbers.Insert(item)
+        }
+    }
+
+    write "Even numbers: "
+
+    for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " }
+}
+
 }
 ```
 

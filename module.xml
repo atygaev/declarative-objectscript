@@ -7,6 +7,7 @@
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="DeclarativeOS.PKG"/>
+      <Resource Name="Demo.PKG"/>
       <Resource Name="%ZLANGC01.MAC"/>
       <Resource Name="%ZLANGF00.MAC"/>
       <UnitTest Name="/test" Package="Test.DeclarativeOS.PKG" Phase="test"/>
