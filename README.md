@@ -61,12 +61,12 @@ $ docker exec -it declarative-os-demo iris session iris
 ```
 ```objectscript
 USER> zn "IRISAPP"
-USER>
-USER> // run legacy code
-USER> do ##class(Demo.App).RunWithLegacyCode()
-USER>
-USER> // run DeclarativeOS code
-USER> do ##class(Demo.App).RunWithDeclarativeOS()
+IRISAPP>
+IRISAPP> // run legacy code
+IRISAPP> do ##class(Demo.App).RunWithLegacyCode()
+IRISAPP>
+IRISAPP> // run DeclarativeOS code
+IRISAPP> do ##class(Demo.App).RunWithDeclarativeOS()
 ```
 
 ## Content
