@@ -37,40 +37,40 @@ Source of [RunWithDeclarativeOS](https://github.com/atygaev/declarative-objectsc
 Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
 <details>
     <summary>Source of Demo.App</summary>
-```objectscript 
-Class Demo.App Extends DeclarativeOS.RegistryHelper 
-{ 
-/// @Declarative("examples:isEven") 
-ClassMethod IsEven(number As %Numeric) As %Boolean 
-{ 
-    return number # 2 = 0 
-} 
-ClassMethod RunWithDeclarativeOS() 
-{ 
-    set numbers = ##class(%ListOfDataTypes).%New() 
-    for i=1:1:4 { do numbers.Insert(i) } 
-    set evenNumbers = $zfilter(numbers, "examples:isEven") 
-    write "Even numbers: " _ $zjoin(evenNumbers, " ") 
-} 
-ClassMethod RunWithLegacyCode() 
-{ 
-    set numbers = ##class(%ListOfDataTypes).%New() 
-    for i=1:1:4 { do numbers.Insert(i) } 
-    set evenNumbers = ##class(%ListOfDataTypes).%New() 
-    set index = "" 
-    for { 
-        set index = numbers.Next(index) 
-        quit:index="" 
-        set item = numbers.GetAt(index) 
-        if (item # 2 = 0) { 
-            do evenNumbers.Insert(item) 
-        } 
-    } 
-    write "Even numbers: " 
-    for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " } 
-} 
-}
-```
+    ```objectscript 
+     Class Demo.App Extends DeclarativeOS.RegistryHelper 
+     { 
+     /// @Declarative("examples:isEven") 
+     ClassMethod IsEven(number As %Numeric) As %Boolean 
+     { 
+         return number # 2 = 0 
+     } 
+     ClassMethod RunWithDeclarativeOS() 
+     { 
+         set numbers = ##class(%ListOfDataTypes).%New() 
+         for i=1:1:4 { do numbers.Insert(i) } 
+         set evenNumbers = $zfilter(numbers, "examples:isEven") 
+         write "Even numbers: " _ $zjoin(evenNumbers, " ") 
+     } 
+     ClassMethod RunWithLegacyCode() 
+     { 
+         set numbers = ##class(%ListOfDataTypes).%New() 
+         for i=1:1:4 { do numbers.Insert(i) } 
+         set evenNumbers = ##class(%ListOfDataTypes).%New() 
+         set index = "" 
+         for { 
+             set index = numbers.Next(index) 
+             quit:index="" 
+             set item = numbers.GetAt(index) 
+             if (item # 2 = 0) { 
+                 do evenNumbers.Insert(item) 
+             } 
+         } 
+         write "Even numbers: " 
+         for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " } 
+     } 
+     }
+     ```
 </details>
 ## Content
 - [Installation](#installation)
