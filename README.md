@@ -33,6 +33,7 @@ Even numbers: 2, 4
 Source of [RunWithDeclarativeOS](https://github.com/atygaev/declarative-objectscript/blob/master/src/cls/Demo/App.cls#L10)
 
 Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
+Both does the same, but there is a difference…
 ```objectscript 
  Class Demo.App Extends DeclarativeOS.RegistryHelper 
  { 
@@ -47,9 +48,9 @@ Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
      set numbers = ##class(%ListOfDataTypes).%New() 
      for i=1:1:4 { do numbers.Insert(i) } 
 
-     set evenNumbers = $zfilter(numbers, "examples:isEven") 
+     set evenNumbers = $zfilter(numbers, "examples:isEven") // sexy and short
 
-     write "Even numbers: " _ $zjoin(evenNumbers, " ") 
+     write "Even numbers: " _ $zjoin(evenNumbers, " ") // printing collection
  } 
  
  ClassMethod RunWithLegacyCode() 
@@ -57,10 +58,10 @@ Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
      set numbers = ##class(%ListOfDataTypes).%New() 
      for i=1:1:4 { do numbers.Insert(i) } 
 
-     set evenNumbers = ##class(%ListOfDataTypes).%New() 
+     set evenNumbers = ##class(%ListOfDataTypes).%New() // iterate explicitly
      set index = "" 
      for { 
-         set index = numbers.Next(index) 
+         set index = numbers.Next(index) // working with indexes
          quit:index="" 
          set item = numbers.GetAt(index) 
          if (item # 2 = 0) { 
@@ -69,7 +70,7 @@ Just compare two variants: **RunWithDeclarativeOS** and **RunWithLegacyCode**.
      } 
 
      write "Even numbers: " 
-     for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " } 
+     for i=1:1:evenNumbers.Count() { write evenNumbers.GetAt(i) _ " " } // printing collection
  } 
  }
  ```
