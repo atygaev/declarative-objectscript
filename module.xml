@@ -3,7 +3,8 @@
   <Document name="declarative-os.ZPM">
     <Module>
       <Name>declarative-os</Name>
-      <Version>1.0.2</Version>
+      <Version>1.0.3</Version>
+      <Description>Work with collections like a boss + Epic promo video inside!</Description>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="DeclarativeOS.PKG"/>
